@@ -2,7 +2,7 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 from .core import WesternCalendar
-from .core import SUN
+from .core import SUN, SAT
 from .core import IslamicMixin, ChristianMixin
 
 
@@ -115,6 +115,3 @@ class SouthAfrica(WesternCalendar, ChristianMixin):
         days = super(SouthAfrica, self).get_variable_days(year)
         days.append(self.get_family_day(year))
         return days
-
-    def get_weekend_days(self):
-        return SUN,
