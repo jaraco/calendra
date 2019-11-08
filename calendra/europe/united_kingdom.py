@@ -41,7 +41,7 @@ class UnitedKingdom(WesternCalendar, ChristianMixin):
             day = date(year, 5, 8)
             desc += " (VE day)"
             indication = "VE day"
-        return Holiday(day, desc, indication=indication)
+        return Holiday.from_date(day, desc, indication=indication)
 
     def get_spring_bank_holiday(self, year):
         day = date(year, 5, 30) + rd.relativedelta(weekday=rd.MO(-1))
@@ -49,14 +49,14 @@ class UnitedKingdom(WesternCalendar, ChristianMixin):
             day = date(year, 6, 4)
         if year in (1977,):
             day = date(year, 6, 6)
-        return Holiday(
+        return Holiday.from_date(
             day,
             "Spring Bank Holiday",
             indication="Last Monday in May",
-        ),
+        )
 
     def get_late_summer_bank_holiday(self, year):
-        return Holiday(
+        return Holiday.from_date(
             date(year, 8, 31) + rd.relativedelta(weekday=rd.MO(-1)),
             "Late Summer Bank Holiday",
             indication="Last Monday in August",

@@ -18,7 +18,7 @@ class UnitedStates(WesternCalendar, ChristianMixin):
 
     FIXED_HOLIDAYS = WesternCalendar.FIXED_HOLIDAYS + (
         Holiday(
-            date(2000, 7, 4),
+            2000, 7, 4,
             'Independence Day',
             indication='July 4',
         ),
@@ -137,14 +137,14 @@ class UnitedStates(WesternCalendar, ChristianMixin):
         return date(year, 1, 1) + rd.relativedelta(weekday=rd.MO(3))
 
     def get_martin_luther_king_day(self, year):
-        return Holiday(
+        return Holiday.from_date(
             self.get_martin_luther_king_date(year),
             self.martin_luther_king_label,
             indication="3rd Monday in January",
         )
 
     def get_presidents_day(self, year):
-        return Holiday(
+        return Holiday.from_date(
             date(year, 2, 1) + rd.relativedelta(weekday=rd.MO(3)),
             self.presidents_day_label,
             indication="3rd Monday in February",
@@ -188,7 +188,7 @@ class UnitedStates(WesternCalendar, ChristianMixin):
         return (day, self.label_washington_birthday_december)
 
     def get_columbus_day(self, year):
-        return Holiday(
+        return Holiday.from_date(
             date(year, 10, 1) + rd.relativedelta(weekday=rd.MO(2)),
             self.columbus_day_label,
             indication="2nd Monday in October",
@@ -222,7 +222,7 @@ class UnitedStates(WesternCalendar, ChristianMixin):
         return inauguration_day
 
     def get_national_memorial_day(self, year):
-        return Holiday(
+        return Holiday.from_date(
             date(year, 5, 31) + rd.relativedelta(weekday=rd.MO(-1)),
             self.national_memorial_day_label,
             indication="Last Monday in May",
@@ -242,13 +242,13 @@ class UnitedStates(WesternCalendar, ChristianMixin):
         days += [
             self.get_veterans_day(year),
             self.get_national_memorial_day(year),
-            Holiday(
+            Holiday.from_date(
                 date(year, 9, 1) + rd.relativedelta(weekday=rd.MO(1)),
                 "Labor Day",
                 indication="1st Monday in September",
             ),
 
-            Holiday(
+            Holiday.from_date(
                 date(year, 11, 1) + rd.relativedelta(weekday=rd.TH(4)),
                 "Thanksgiving Day",
                 indication="4th Thursday in November",
@@ -288,7 +288,7 @@ class UnitedStates(WesternCalendar, ChristianMixin):
             # Is it a "Inauguration year"?
             if UnitedStates.is_presidential_year(year - 1):
                 days.append(
-                    Holiday(
+                    Holiday.from_date(
                         self.get_inauguration_date(year),
                         "Inauguration Day",
                         indication=ind,
@@ -310,7 +310,7 @@ class UnitedStates(WesternCalendar, ChristianMixin):
 
     def get_veterans_day(self, year):
         return Holiday(
-            date(year, 11, 11),
+            year, 11, 11,
             self.veterans_day_label,
             indication='Nov 11',
         )

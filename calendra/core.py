@@ -51,12 +51,12 @@ class Holiday(date):
     A named holiday with an indicated date, name, and additional keyword
     attributes.
 
-    >>> nyd = Holiday(date(2014, 1, 1), "New year")
+    >>> nyd = Holiday(2014, 1, 1, "New year")
 
     But if New Year's Eve is also a holiday, and it too falls on a weekend,
     many calendars will have that holiday fall back to the previous friday:
 
-    >>> nye = Holiday(date(2014, 12, 31), "New year's eve",
+    >>> nye = Holiday(2014, 12, 31, "New year's eve",
     ...     observance_shift=dict(weekday=rd.FR(-1)))
 
     For compatibility, a Holiday may be treated like a tuple of (date, label)
@@ -68,13 +68,16 @@ class Holiday(date):
     >>> d, label = nyd
     """
 
-    def __new__(cls, date, *args, **kwargs):
-        return super(Holiday, cls).__new__(
-            cls, date.year, date.month, date.day)
+    def __new__(cls, *args, **kwargs):
+        return super(Holiday, cls).__new__(cls, *args[:3])
 
-    def __init__(self, date, name='Holiday', **kwargs):
+    def __init__(self, year, month, day, name='Holiday', **kwargs):
         self.name = name
         vars(self).update(kwargs)
+
+    @classmethod
+    def from_date(cls, date, *args, **kwargs):
+        return cls(date.year, date.month, date.day, *args, **kwargs)
 
     def __getitem__(self, n):
         """
@@ -120,7 +123,7 @@ class Holiday(date):
         if isinstance(item, tuple):
             month, day, label = item
             any_year = 2000
-            item = Holiday(date(any_year, month, day), label)
+            item = Holiday(any_year, month, day, label)
         return item
 
     @classmethod
@@ -129,7 +132,8 @@ class Holiday(date):
         or existing Holiday instance.
         """
         if isinstance(item, tuple):
-            item = Holiday(*item)
+            date, name = item
+            item = Holiday(date.year, date.month, date.day, name)
         return item
 
 
@@ -634,13 +638,13 @@ class ChristianMixin(Calendar):
             days.append((date(year, 12, 8), self.immaculate_conception_label))
         christmas = None
         if self.include_christmas:
-            christmas = Holiday(date(year, 12, 25), "Christmas Day")
+            christmas = Holiday(year, 12, 25, "Christmas Day")
             days.append(christmas)
         if self.include_christmas_eve:
             days.append((date(year, 12, 24), "Christmas Eve"))
         if self.include_boxing_day:
             boxing_day = Holiday(
-                date(year, 12, 26),
+                year, 12, 26,
                 self.boxing_day_label,
                 indication="Day after Christmas",
                 observe_after=christmas
@@ -672,7 +676,7 @@ class WesternCalendar(Calendar):
     def get_variable_days(self, year):
         days = super(WesternCalendar, self).get_variable_days(year)
         new_years = Holiday(
-            date(year, 1, 1), 'New year', indication='First day in January',
+            year, 1, 1, 'New year', indication='First day in January',
         )
         if not self.shift_new_years_day:
             new_years.observance_shift = None

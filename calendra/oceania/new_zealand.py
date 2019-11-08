@@ -21,19 +21,19 @@ class NewZealand(WesternCalendar, ChristianMixin):
     shift_new_years_day = True
 
     FIXED_HOLIDAYS = WesternCalendar.FIXED_HOLIDAYS + (
-        Holiday(date(2000, 2, 6), "Waitangi Day"),
-        Holiday(date(2000, 4, 25), "ANZAC Day"),
+        Holiday(2000, 2, 6, "Waitangi Day"),
+        Holiday(2000, 4, 25, "ANZAC Day"),
     )
 
     def get_queens_birthday(self, year):
-        return Holiday(
+        return Holiday.from_date(
             date(year, 6, 1) + rd.relativedelta(weekday=rd.MO(1)),
             "Queen's Birthday",
             indication="First Monday in June",
         )
 
     def get_labour_day(self, year):
-        return Holiday(
+        return Holiday.from_date(
             date(year, 10, 1) + rd.relativedelta(weekday=rd.MO(4)),
             "Labour Day",
             indication="Fourth Monday in October",
@@ -43,7 +43,7 @@ class NewZealand(WesternCalendar, ChristianMixin):
         # usual variable days
         days = super(NewZealand, self).get_variable_days(year)
         days.append(Holiday(
-            date(year, 1, 2),
+            year, 1, 2,
             "Day after New Year's Day",
             observe_after=_by_name(days)["New year"],
         ))

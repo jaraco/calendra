@@ -2,8 +2,6 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-import datetime
-
 from .core import UnitedStates
 from ..core import MON
 from ..core import Holiday
@@ -14,10 +12,7 @@ from ..registry_tools import iso_register
 class Alaska(UnitedStates):
     """Alaska"""
     FIXED_HOLIDAYS = UnitedStates.FIXED_HOLIDAYS + (
-        Holiday(
-            datetime.date(2000, 10, 18),
-            'Alaska Day',
-        ),
+        Holiday(2000, 10, 18, 'Alaska Day'),
     )
     include_columbus_day = False
 

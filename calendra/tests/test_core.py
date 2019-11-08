@@ -118,8 +118,8 @@ class MockCalendar(Calendar):
 
     def holidays(self, year=None):
         return (
-            Holiday(date(year, 12, 25), 'Christmas'),
-            Holiday(date(year, 1, 1), 'New year'),
+            Holiday(year, 12, 25, 'Christmas'),
+            Holiday(year, 1, 1, 'New year'),
         )
 
     def get_weekend_days(self):
@@ -247,10 +247,10 @@ class SimpleObservanceCalendar(Calendar):
     """
     FIXED_HOLIDAYS = (
         Holiday(
-            date(2000, 12, 24), 'Christmas Eve', indication='December 24th',
+            2000, 12, 24, 'Christmas Eve', indication='December 24th',
             observance_shift=dict(weekday=rd.FR(-1)),
         ),
-        Holiday(date(2000, 12, 25), 'Christmas', indication='December 25th'),
+        Holiday(2000, 12, 25, 'Christmas', indication='December 25th'),
     )
 
     def get_weekend_days(self):
