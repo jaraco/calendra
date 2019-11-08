@@ -2,7 +2,9 @@ v5.0.0
 ------
 
 #11: ``Holiday`` object can now be constructed using the same
-signature as ``datetime.date``.
+signature as ``datetime.date``. Passing a ``datetime.date``
+to ``Holiday()`` is deprecated and should be adjusted by passing
+the integer elements directly or by calling ``Holiday.from_date``.
 
 Incorporate changes from workalendar v7.0.0 (2019-09-20)
 

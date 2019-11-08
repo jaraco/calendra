@@ -69,6 +69,13 @@ class Holiday(date):
     """
 
     def __new__(cls, *args, **kwargs):
+        if isinstance(args[0], date):
+            warnings.warn(
+                "Pass date elements directly or use Holiday.from_date",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+            return cls.from_date(*args, **kwargs)
         return super(Holiday, cls).__new__(cls, *args[:3])
 
     def __init__(self, year, month, day, name='Holiday', **kwargs):
