@@ -78,7 +78,7 @@ class SouthAfricaTest(GenericCalendarTest):
         self.assertIn(date(2013, 12, 26), holidays)  # day of goodwill
 
         # test that Youth Day is observed on 17-Jun and is not a working day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2013)
         self.assertIn(date(2013, 6, 17), observed)
         self.assertFalse(self.cal.is_working_day(date(2013, 6, 17)))
 
@@ -89,7 +89,7 @@ class SouthAfricaTest(GenericCalendarTest):
         self.assertNotIn(date(2014, 4, 28), holidays)  # freedom day - observ
 
         # test that Freedom Day is observed on 28-Apr and is not a working day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2014)
         self.assertIn(date(2014, 4, 28), observed)
         self.assertFalse(self.cal.is_working_day(date(2014, 4, 28)))
 

@@ -609,8 +609,7 @@ class FinlandTest(GenericCalendarTest):
         """
         Holidays should not be shifted for Finland.
         """
-        holidays = self.cal.holidays_set(2014)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2014)
         self.assertIn(date(2014, 12, 6), observed)
         self.assertTrue(self.cal.is_working_day(date(2014, 12, 8)))
 
@@ -951,7 +950,7 @@ class IrelandTest(GenericCalendarTest):
     def test_shift_2012(self):
         holidays = self.cal.holidays_set(2012)
         self.assertIn(date(2012, 1, 1), holidays)    # new year day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)    # new year day shift
 
     def test_shift_2011(self):
@@ -1930,7 +1929,7 @@ class UnitedKingdomTest(GenericCalendarTest):
 
     def test_shift_2016(self):
         holidays = self.cal.holidays_set(2016)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2016)
         self.assertIn(date(2016, 12, 25), holidays)  # Christmas - Sunday
         self.assertIn(date(2016, 12, 26), observed)  # Christmas - observed
         self.assertIn(date(2016, 12, 27), observed)  # Boxing day - observed
@@ -1964,7 +1963,7 @@ class UnitedKingdomTest(GenericCalendarTest):
     def test_2022(self):
         holidays = self.cal.holidays_set(2022)
         print(holidays)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2022)
         self.assertIn(date(2022, 1, 3), observed)  # New Year
         self.assertIn(date(2022, 4, 15), holidays)  # Good Friday
         self.assertIn(date(2022, 4, 18), holidays)  # Easter Monday
@@ -2033,7 +2032,7 @@ class GuernseyTest(GenericCalendarTest):
 
     def test_2022(self):
         holidays = self.cal.holidays_set(2022)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2022)
         self.assertIn(date(2022, 1, 3), observed)  # New Year
         self.assertIn(date(2022, 4, 15), holidays)  # Good Friday
         self.assertIn(date(2022, 4, 18), holidays)  # Easter Monday

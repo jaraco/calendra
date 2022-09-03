@@ -1,7 +1,9 @@
 import itertools
+import functools
 from datetime import date, timedelta
 
 from more_itertools import recipes
+from dateutil import relativedelta as rd
 
 
 class Holiday(date):
@@ -98,6 +100,35 @@ class Holiday(date):
         if isinstance(item, tuple):
             item = Holiday(*item, **kwargs)
         return item
+
+    @functools.lru_cache()
+    def get_observed_date(self, calendar):
+        """
+        The date the holiday is observed for the calendar. If the holiday
+        occurs on a weekend, it may be observed on another day as indicated by
+        the observance_shift.
+
+        The holiday may also specify an 'observe_after' such that it is always
+        shifted after a preceding holiday. For example, Boxing day is always
+        observed after Christmas Day is observed.
+        """
+        # observance_shift may be overridden in the holiday itself
+        shift = getattr(self, 'observance_shift', calendar.observance_shift)
+        if callable(shift):
+            shifted = shift(self, calendar)
+        else:
+            shift = shift or {}
+            delta = rd.relativedelta(**shift)
+            try:
+                weekend_days = calendar.get_weekend_days()
+            except NotImplementedError:
+                weekend_days = ()
+            should_shift = self.weekday() in weekend_days
+            shifted = self + delta if should_shift else self
+        precedent = getattr(self, 'observe_after', None)
+        while precedent and shifted <= precedent.get_observed_date(calendar):
+            shifted += timedelta(days=1)
+        return shifted
 
 
 class SeriesShiftMixin:

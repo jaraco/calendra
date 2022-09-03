@@ -178,7 +178,7 @@ class HongKongTest(GenericCalendarTest):
         self.assertIn(date(2010, 10, 1), holidays)   # National Day
         self.assertIn(date(2010, 10, 16), holidays)  # Chung Yeung Festival
         self.assertIn(date(2010, 12, 25), holidays)  # Christmas Day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2010)
         self.assertIn(date(2010, 12, 27), observed)  # Boxing Day (shifted)
 
     def test_year_2013(self):
@@ -198,7 +198,7 @@ class HongKongTest(GenericCalendarTest):
         self.assertIn(date(2013, 7, 1), holidays)    # HK SAR Establishment Day
         self.assertIn(date(2013, 9, 20), holidays)   # Day after Mid-Autumn
         self.assertIn(date(2013, 10, 1), holidays)   # National Day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2013)
         self.assertIn(date(2013, 10, 14), observed)  # Chung Yeung Festival
         self.assertIn(date(2013, 12, 25), holidays)  # Christmas Day
         self.assertIn(date(2013, 12, 26), holidays)  # Boxing Day
@@ -215,7 +215,7 @@ class HongKongTest(GenericCalendarTest):
         self.assertIn(date(2016, 3, 28), holidays)   # Easter Monday
         self.assertIn(date(2016, 4, 4), holidays)    # Ching Ming
         self.assertIn(date(2016, 5, 1), holidays)    # Labour Day (SUN)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2016)
         self.assertIn(date(2016, 5, 2), observed)    # Labour Day (shifted)
         self.assertIn(date(2016, 5, 14), holidays)   # Buddha's Birthday
         self.assertIn(date(2016, 6, 9), holidays)    # Tuen Ng Festival
@@ -230,7 +230,7 @@ class HongKongTest(GenericCalendarTest):
     def test_year_2017(self):
         # https://www.gov.hk/en/about/abouthk/holiday/2017.htm
         holidays = self.cal.holidays_set(2017)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2017)
         self.assertIn(date(2017, 1, 2), observed)    # New Year (shifted)
         self.assertIn(date(2017, 1, 28), holidays)   # Chinese new year
         self.assertIn(date(2017, 1, 30), holidays)   # Chinese new year
@@ -283,7 +283,7 @@ class HongKongTest(GenericCalendarTest):
         self.assertIn(date(2020, 7, 1), holidays)    # HK SAR Establishment Day
         self.assertIn(date(2020, 10, 1), holidays)   # National Day
         self.assertIn(date(2020, 10, 2), holidays)   # Day after Mid-Autumn
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2020)
         self.assertIn(date(2020, 10, 26), observed)  # Chung Yeung Festival
         self.assertIn(date(2020, 12, 25), holidays)  # Christmas Day
         self.assertIn(date(2020, 12, 26), holidays)  # Boxing Day
@@ -297,7 +297,7 @@ class HongKongTest(GenericCalendarTest):
         self.assertIn(date(2021, 2, 12), holidays)   # Chinese new year
         self.assertIn(date(2021, 2, 13), holidays)   # Chinese new year
         self.assertIn(date(2021, 2, 14), holidays)   # Chinese new year (SUN)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2021)
         self.assertIn(date(2021, 2, 15), observed)   # Chinese new year
         self.assertIn(date(2021, 4, 2), holidays)    # Good Friday
         self.assertIn(date(2021, 4, 3), holidays)    # Day after Good Friday
@@ -566,7 +566,7 @@ class SingaporeTest(GenericCalendarTest):
         self.assertIn(date(2013, 8, 9), holidays)  # National Day
         self.assertIn(date(2013, 10, 15), holidays)  # Hari Raya Haji
         self.assertIn(date(2013, 11, 3), holidays)  # Deepavali
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2013)
         self.assertIn(date(2013, 11, 4), observed)  # Deepavali shift
         self.assertIn(date(2013, 12, 25), holidays)  # Christmas Day
 
@@ -590,7 +590,7 @@ class SingaporeTest(GenericCalendarTest):
         # Labour Day (sunday)
         self.assertIn(date(2016, 5, 1), holidays)
         # Shifted day (Monday)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2016)
         self.assertIn(date(2016, 5, 2), observed)
 
     def test_deepavali(self):

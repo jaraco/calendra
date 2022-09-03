@@ -301,7 +301,7 @@ class NewZealandTest(GenericCalendarTest):
         # The day after is still a holiday
         self.assertIn(date(2022, 1, 2), holidays)
         # The shift is on the MON, 3rd
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2022)
         self.assertIn(date(2022, 1, 3), observed)
         # And there's a shift of the shift
         self.assertIn(date(2022, 1, 4), observed)

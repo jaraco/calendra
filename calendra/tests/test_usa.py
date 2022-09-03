@@ -83,16 +83,13 @@ class UnitedStatesTest(GenericCalendarTest):
         """
         Independence Day should shift to the nearest weekday.
         """
-        holidays = self.cal.holidays_set(2010)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2010)
         self.assertIn(date(2010, 7, 5), observed)
 
-        holidays = self.cal.holidays_set(2011)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2011)
         self.assertIn(date(2011, 7, 4), observed)
 
-        holidays = self.cal.holidays_set(2015)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2015)
         self.assertIn(date(2015, 7, 3), observed)
 
     def test_presidential_year(self):
@@ -398,7 +395,7 @@ class AlaskaTest(NoColumbus, UnitedStatesTest):
         holidays = self.cal.holidays_set(2014)
         self.assertIn(date(2014, 3, 31), holidays)  # Seward's Day
         self.assertIn(date(2014, 10, 18), holidays)  # Alaska Day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2014)
         # Alaska Day is on SAT, shift to FRI
         self.assertIn(date(2014, 10, 17), observed)
 
@@ -406,7 +403,7 @@ class AlaskaTest(NoColumbus, UnitedStatesTest):
         holidays = self.cal.holidays_set(2015)
         self.assertIn(date(2015, 3, 30), holidays)  # Seward's Day
         self.assertIn(date(2015, 10, 18), holidays)  # Alaska Day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2015)
         # Alaska day is on SUN: shifted to MON
         self.assertIn(date(2015, 10, 19), observed)
 
@@ -414,7 +411,7 @@ class AlaskaTest(NoColumbus, UnitedStatesTest):
         holidays = self.cal.holidays_set(2017)
         self.assertIn(date(2017, 3, 27), holidays)  # Seward's Day
         self.assertIn(date(2017, 10, 18), holidays)  # Alaska Day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2017)
         # Alaska day is on WED: no shift
         self.assertNotIn(date(2017, 10, 19), observed)
         self.assertNotIn(date(2017, 10, 17), observed)
@@ -450,7 +447,7 @@ class ArkansasTest(NoColumbus, UnitedStatesTest):
     def test_christmas_2016(self):
         holidays = self.cal.holidays_set(2016)
         self.assertIn(date(2016, 12, 24), holidays)  # XMas Eve
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2016)
         self.assertIn(date(2016, 12, 23), observed)  # XMas Eve shifted
 
     def test_president_day_label(self):
@@ -666,7 +663,7 @@ class FloridaBasicTest:
 
     def test_state_year_2015(self):
         holidays = self.cal.holidays_set(2015)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2015)
         self.assertIn(date(2015, 7, 3), observed)
         self.assertIn(date(2015, 11, 27), holidays)  # Thanksgiving Friday
 
@@ -884,7 +881,7 @@ class GeorgiaTest(NoPresidentialDay, UnitedStatesTest):
         self.assertIn(date(2020, 4, 10), holidays)
 
         self.assertIn(date(2020, 5, 25), holidays)  # memorial day
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2020)
         # Independance day (OBS)
         self.assertIn(date(2020, 7, 3), observed)
         self.assertIn(date(2020, 7, 4), holidays)  # Independance day
@@ -925,7 +922,7 @@ class HawaiiTest(ElectionDayEvenYears, NoColumbus, UnitedStatesTest):
 
     def test_state_year_2017(self):
         holidays = self.cal.holidays_set(2017)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2017)
         self.assertIn(date(2017, 3, 26),
                       holidays)  # Prince Jonah Kuhio Kalanianaole
         self.assertIn(date(2017, 3, 27),
@@ -1086,7 +1083,7 @@ class IowaTest(NoPresidentialDay, NoColumbus, UnitedStatesTest):
 
     def test_state_year_2015(self):
         holidays = self.cal.holidays_set(2015)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2015)
         self.assertIn(date(2015, 7, 3), observed)
         self.assertIn(date(2015, 11, 27), holidays)  # Thanksgiving Friday
 
@@ -1537,7 +1534,7 @@ class SouthCarolinaTest(NoColumbus, UnitedStatesTest):
 
     def test_state_year_2014(self):
         holidays = self.cal.holidays_set(2014)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2014)
         # Confederate Memorial Day
         self.assertIn(date(2014, 5, 10), holidays)
         # Observed here, it falls on SAT
@@ -1641,14 +1638,14 @@ class VermontTest(NoColumbus, UnitedStatesTest):
 
     def test_state_year_2014(self):
         holidays = self.cal.holidays_set(2014)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2014)
         self.assertIn(date(2014, 3, 4), holidays)  # Town Meeting Day
         self.assertIn(date(2014, 8, 16), holidays)  # Bennington Battle Day
         self.assertIn(date(2014, 8, 15), observed)  # Shifted to FRI
 
     def test_state_year_2015(self):
         holidays = self.cal.holidays_set(2015)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2015)
         self.assertIn(date(2015, 3, 3), holidays)  # Town Meeting Day
         self.assertIn(date(2015, 8, 16), holidays)  # Bennington Battle Day
         self.assertIn(date(2015, 8, 17), observed)  # Shifted to MON
@@ -1956,14 +1953,14 @@ class FederalReserveSystemTest(UnitedStatesTest):
     def test_juneteenth_day(self):
 
         holidays = self.cal.holidays_set(2021)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2021)
         juneteenth, _ = self.cal.get_juneteenth_day(2021)
         self.assertEqual(date(2021, 6, 19), juneteenth)
         # 2021-06-19 is a Saturday so holiday is shifted
         self.assertIn(date(2021, 6, 18), observed)
 
         holidays = self.cal.holidays_set(2022)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2022)
         juneteenth, _ = self.cal.get_juneteenth_day(2022)
         self.assertEqual(date(2022, 6, 19), juneteenth)
         # 2022-06-19 is a Sunday so holiday is shifted

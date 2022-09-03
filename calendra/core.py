@@ -7,7 +7,6 @@ from calendar import monthrange
 from datetime import date, timedelta, datetime
 from pathlib import Path
 import sys
-import functools
 
 import convertdate
 from dateutil import easter
@@ -570,35 +569,6 @@ class CoreCalendar:
         day = cleaned_date(day)
         return {day: label for day, label in self.holidays(day.year)}.get(day)
 
-    @functools.lru_cache()
-    def get_observed_date(self, holiday):
-        """
-        The date the holiday is observed for this calendar. If the holiday
-        occurs on a weekend, it may be observed on another day as indicated by
-        the observance_shift.
-
-        The holiday may also specify an 'observe_after' such that it is always
-        shifted after a preceding holiday. For example, Boxing day is always
-        observed after Christmas Day is observed.
-        """
-        # observance_shift may be overridden in the holiday itself
-        shift = getattr(holiday, 'observance_shift', self.observance_shift)
-        if callable(shift):
-            shifted = shift(holiday, self)
-        else:
-            shift = shift or {}
-            delta = rd.relativedelta(**shift)
-            try:
-                weekend_days = self.get_weekend_days()
-            except NotImplementedError:
-                weekend_days = ()
-            should_shift = holiday.weekday() in weekend_days
-            shifted = holiday + delta if should_shift else holiday
-        precedent = getattr(holiday, 'observe_after', None)
-        while precedent and shifted <= self.get_observed_date(precedent):
-            shifted += timedelta(days=1)
-        return shifted
-
     def holidays_set(self, year=None):
         "Return a quick date index (set)"
         return set(self.holidays(year))
@@ -666,11 +636,16 @@ class CoreCalendar:
 
         return day in self.holidays_set(day.year)
 
+    def observed_holidays(self, year):
+        return set(
+            holiday.get_observed_date(self)
+            for holiday in self.holidays(year)
+        )
+
     def is_observed_holiday(self, day):
         """Return True if it's an observed holiday.
         """
-        observed = set(map(self.get_observed_date, self.holidays(day.year)))
-        return day in observed
+        return day in self.observed_holidays(day.year)
 
     def add_working_days(self, day, delta,
                          extra_working_days=None, extra_holidays=None,
@@ -1026,7 +1001,7 @@ class CoreCalendar:
 
         # add an event for each holiday
         for holiday in holidays:
-            date_ = self.get_observed_date(holiday)
+            date_ = holiday.get_observed_date(self)
             ics.extend([
                 'BEGIN:VEVENT',
                 f'SUMMARY:{holiday.name}',

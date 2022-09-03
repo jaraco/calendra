@@ -13,7 +13,7 @@ class CanadaTest(GenericCalendarTest):
 
     def test_holidays_2011(self):
         holidays = self.cal.holidays_set(2011)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2011)
         self.assertIn(date(2011, 1, 3), observed)
         self.assertIn(date(2011, 7, 1), holidays)
         self.assertIn(date(2011, 9, 5), holidays)
@@ -21,7 +21,7 @@ class CanadaTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)  # New years shift
         self.assertIn(date(2012, 7, 2), observed)  # Canada day shift
         self.assertIn(date(2012, 9, 3), holidays)  # Labour day
@@ -37,8 +37,7 @@ class CanadaTest(GenericCalendarTest):
         self.assertIn(date(2013, 12, 25), holidays)
 
     def test_holidays_2017(self):
-        holidays = self.cal.holidays_set(2017)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2017)
         self.assertIn(date(2017, 1, 2), observed)
 
 
@@ -52,7 +51,7 @@ class OntarioTest(GenericCalendarTest):
 
     def test_holidays_2011(self):
         holidays = self.cal.holidays_set(2011)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2011)
         self.assertIn(date(2011, 1, 3), observed)
         self.assertIn(date(2011, 2, 21), holidays)  # Family Day Ontario
         self.assertIn(date(2011, 4, 22), holidays)  # Good Friday
@@ -67,7 +66,7 @@ class OntarioTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertIn(date(2012, 2, 20), holidays)  # Family Day Ontario
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -86,7 +85,7 @@ class QuebecTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertNotIn(date(2012, 4, 6), holidays)  # Good Friday
         self.assertIn(date(2012, 4, 9), holidays)  # Easter Monday
@@ -103,7 +102,7 @@ class BritishColumbiaTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         # Family Day BC was not set in 2012
         self.assertNotIn(date(2012, 2, 13), holidays)
@@ -139,7 +138,7 @@ class AlbertaTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertIn(date(2012, 2, 20), holidays)  # Family Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -158,7 +157,7 @@ class SaskatchewanTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertIn(date(2012, 2, 20), holidays)  # Family Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -178,7 +177,7 @@ class ManitobaTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertIn(date(2012, 2, 20), holidays)  # Louis Riel Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -199,7 +198,7 @@ class NewBrunswickTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertNotIn(date(2012, 2, 20), holidays)  # Family Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -220,7 +219,7 @@ class NovaScotiaTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertNotIn(date(2012, 2, 20), holidays)  # Family Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -245,7 +244,7 @@ class PrinceEdwardIslandTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertIn(date(2012, 2, 20), holidays)  # Islander Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -279,7 +278,7 @@ class YukonTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertNotIn(date(2012, 2, 20), holidays)  # Family Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -301,7 +300,7 @@ class NorthwestTerritoriesTest(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertNotIn(date(2012, 2, 20), holidays)  # Family Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday
@@ -323,7 +322,7 @@ class NunavutTests(GenericCalendarTest):
 
     def test_holidays_2012(self):
         holidays = self.cal.holidays_set(2012)
-        observed = set(map(self.cal.get_observed_date, holidays))
+        observed = self.cal.observed_holidays(2012)
         self.assertIn(date(2012, 1, 2), observed)
         self.assertNotIn(date(2012, 2, 20), holidays)  # Family Day
         self.assertIn(date(2012, 4, 6), holidays)  # Good Friday

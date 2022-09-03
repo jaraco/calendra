@@ -306,9 +306,9 @@ class ObservanceCalendarTest(CoreCalendarTest):
         assert len(holidays) == 2
         xmas_eve, xmas_day = holidays
         assert xmas_eve == date(2011, 12, 24)
-        assert self.cal.get_observed_date(xmas_eve) == date(2011, 12, 23)
+        assert xmas_eve.get_observed_date(self.cal) == date(2011, 12, 23)
         assert xmas_day == date(2011, 12, 25)
-        assert self.cal.get_observed_date(xmas_day) == date(2011, 12, 26)
+        assert xmas_day.get_observed_date(self.cal) == date(2011, 12, 26)
 
 
 class IslamicMixinTest(CoreCalendarTest):
