@@ -163,23 +163,6 @@ class ChristianMixin:
     def get_corpus_christi(self, year):
         return self.get_easter_sunday(year) + timedelta(days=60)
 
-    def shift_christmas_boxing_days(self, year):
-        """ When Christmas and/or Boxing Day falls on a weekend, it is rolled
-            forward to the next weekday.
-        """
-        christmas = date(year, 12, 25)
-        boxing_day = date(year, 12, 26)
-        boxing_day_label = "{} Shift".format(self.boxing_day_label)
-        results = []
-        if christmas.weekday() in self.get_weekend_days():
-            shift = self.find_following_working_day(christmas)
-            results.append((shift, "Christmas Shift"))
-            results.append((shift + timedelta(days=1), boxing_day_label))
-        elif boxing_day.weekday() in self.get_weekend_days():
-            shift = self.find_following_working_day(boxing_day)
-            results.append((shift, boxing_day_label))
-        return results
-
     def get_variable_days(self, year):  # noqa
         "Return the christian holidays list according to the mixin"
         days = super().get_variable_days(year)

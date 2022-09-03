@@ -144,6 +144,7 @@ class BulgariaTest(GenericCalendarTest):
 
     def test_holidays_2020(self):
         holidays = self.cal.holidays_set(2020)
+        observed = self.cal.observed_holidays(2020)
         self.assertIn(date(2020, 1, 1), holidays)  # New Year's Day
         self.assertIn(date(2020, 3, 3), holidays)  # Liberation Day
         self.assertIn(date(2020, 4, 17), holidays)  # Good Friday
@@ -163,10 +164,11 @@ class BulgariaTest(GenericCalendarTest):
         self.assertIn(date(2020, 12, 24), holidays)  # Christmas Eve
         self.assertIn(date(2020, 12, 25), holidays)  # Christmas 1 (FRI)
         self.assertIn(date(2020, 12, 26), holidays)  # Christmas 2 (SAT)
-        self.assertIn(date(2020, 12, 28), holidays)  # Christmas 2b (shift)
+        self.assertIn(date(2020, 12, 28), observed)  # Christmas 2b (shift)
 
     def test_holidays_2021(self):
         holidays = self.cal.holidays_set(2021)
+        observed = self.cal.observed_holidays(2021)
         self.assertIn(date(2021, 1, 1), holidays)  # New Year's Day
         self.assertIn(date(2021, 3, 3), holidays)  # Liberation Day
         self.assertIn(date(2021, 4, 30), holidays)  # Good Friday
@@ -184,11 +186,12 @@ class BulgariaTest(GenericCalendarTest):
         self.assertIn(date(2021, 12, 24), holidays)  # Christmas Eve
         self.assertIn(date(2021, 12, 25), holidays)  # Christmas 1 (SAT)
         self.assertIn(date(2021, 12, 26), holidays)  # Christmas 2
-        self.assertIn(date(2021, 12, 27), holidays)  # Christmas 2b
-        self.assertIn(date(2021, 12, 28), holidays)  # Christmas 2c
+        self.assertIn(date(2021, 12, 27), observed)  # Christmas 2b
+        self.assertIn(date(2021, 12, 28), observed)  # Christmas 2c
 
     def test_holidays_2022(self):
         holidays = self.cal.holidays_set(2022)
+        observed = self.cal.observed_holidays(2022)
         self.assertIn(date(2022, 1, 1), holidays)  # New Year's Day
         self.assertIn(date(2022, 1, 3), holidays)  # New Year's Day (shift)
         self.assertIn(date(2022, 3, 3), holidays)  # Liberation Day
@@ -208,8 +211,8 @@ class BulgariaTest(GenericCalendarTest):
         self.assertIn(date(2022, 12, 24), holidays)  # Christmas Eve
         self.assertIn(date(2022, 12, 25), holidays)  # Christmas 1 (SAT)
         self.assertIn(date(2022, 12, 26), holidays)  # Christmas 2
-        self.assertIn(date(2022, 12, 27), holidays)  # Christmas 2b
-        self.assertIn(date(2022, 12, 28), holidays)  # Christmas 2c
+        self.assertIn(date(2022, 12, 27), observed)  # Christmas 2b
+        self.assertIn(date(2022, 12, 28), observed)  # Christmas 2c
 
 
 class CaymanIslandsTest(GenericCalendarTest):
@@ -245,6 +248,7 @@ class CaymanIslandsTest(GenericCalendarTest):
 
     def test_holidays_2015(self):
         holidays = self.cal.holidays_set(2015)
+        observed = self.cal.observed_holidays(2015)
         self.assertIn(date(2015, 1, 1), holidays)
         self.assertIn(date(2015, 1, 26), holidays)  # National Heroes Day
         self.assertIn(date(2015, 2, 18), holidays)   # Ash Wednesday
@@ -256,10 +260,11 @@ class CaymanIslandsTest(GenericCalendarTest):
         self.assertIn(date(2015, 11, 9), holidays)  # Remembrance Day
         self.assertIn(date(2015, 12, 25), holidays)  # XMas
         self.assertIn(date(2015, 12, 26), holidays)  # Boxing Day (on week-end)
-        self.assertIn(date(2015, 12, 28), holidays)  # Boxing Day observed
+        self.assertIn(date(2015, 12, 28), observed)  # Boxing Day observed
 
     def test_holidays_2016(self):
         holidays = self.cal.holidays_set(2016)
+        observed = self.cal.observed_holidays(2016)
         self.assertIn(date(2016, 1, 1), holidays)
         self.assertIn(date(2016, 1, 25), holidays)  # National Heroes Day
         self.assertIn(date(2016, 2, 10), holidays)   # Ash Wednesday
@@ -269,8 +274,8 @@ class CaymanIslandsTest(GenericCalendarTest):
         self.assertIn(date(2016, 6, 13), holidays)  # Queen's Birthday
         self.assertIn(date(2016, 7, 4), holidays)   # Constitution Day
         self.assertIn(date(2016, 11, 14), holidays)  # Remembrance Day
-        self.assertIn(date(2016, 12, 26), holidays)  # XMas (in lieu)
-        self.assertIn(date(2016, 12, 27), holidays)  # Boxing Day (in lieu)
+        self.assertIn(date(2016, 12, 26), observed)  # XMas (in lieu)
+        self.assertIn(date(2016, 12, 27), observed)  # Boxing Day (in lieu)
 
     def test_holidays_2017(self):
         holidays = self.cal.holidays_set(2017)
@@ -1997,6 +2002,7 @@ class GuernseyTest(GenericCalendarTest):
 
     def test_2020(self):
         holidays = self.cal.holidays_set(2020)
+        observed = self.cal.observed_holidays(2020)
         self.assertIn(date(2020, 1, 1), holidays)  # New Year
         self.assertIn(date(2020, 4, 10), holidays)  # Good Friday
         self.assertIn(date(2020, 4, 13), holidays)  # Easter Monday
@@ -2008,7 +2014,7 @@ class GuernseyTest(GenericCalendarTest):
         self.assertIn(date(2020, 8, 31), holidays)  # Late Summer Bank Holiday
         self.assertIn(date(2020, 12, 25), holidays)  # Christmas Day
         self.assertIn(date(2020, 12, 26), holidays)  # 'Boxing Day
-        self.assertIn(date(2020, 12, 28), holidays)  # Boxing Day Shift
+        self.assertIn(date(2020, 12, 28), observed)  # Boxing Day Shift
 
         # May the 8th is VE day
         holidays = self.cal.holidays(2020)
@@ -2020,6 +2026,7 @@ class GuernseyTest(GenericCalendarTest):
 
     def test_2021(self):
         holidays = self.cal.holidays_set(2021)
+        observed = self.cal.observed_holidays(2021)
         self.assertIn(date(2021, 1, 1), holidays)  # New Year
         self.assertIn(date(2021, 4, 2), holidays)  # Good Friday
         self.assertIn(date(2021, 4, 5), holidays)  # Easter Monday
@@ -2027,8 +2034,8 @@ class GuernseyTest(GenericCalendarTest):
         self.assertIn(date(2021, 5, 9), holidays)  # Liberation Day
         self.assertIn(date(2021, 5, 31), holidays)  # Spring Bank Holiday
         self.assertIn(date(2021, 8, 30), holidays)  # Late Summer Bank Holiday
-        self.assertIn(date(2021, 12, 27), holidays)  # Christmas Day
-        self.assertIn(date(2021, 12, 28), holidays)  # Boxing Day Shift
+        self.assertIn(date(2021, 12, 27), observed)  # Christmas Day
+        self.assertIn(date(2021, 12, 28), observed)  # Boxing Day Shift
 
     def test_2022(self):
         holidays = self.cal.holidays_set(2022)

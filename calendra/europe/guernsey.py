@@ -52,7 +52,4 @@ class Guernsey(WesternCalendar):
         days.append(self.get_spring_bank_holiday(year))
         days.append(self.get_summer_bank_holiday(year))
         days.append(self.get_liberation_day(year))
-        # Boxing day & XMas shift
-        shifts = self.shift_christmas_boxing_days(year=year)
-        days.extend(shifts)
         return days

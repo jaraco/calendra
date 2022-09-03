@@ -28,9 +28,6 @@ class CaymanIslands(WesternCalendar):
             (self.get_remembrance_day(year), "Remembrance Day"),
         ])
 
-        shifts = self.shift_christmas_boxing_days(year=year)
-        days.extend(shifts)
-
         if year == 2017:
             days.append((date(2017, 5, 24), "Election day"))
 

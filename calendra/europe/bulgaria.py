@@ -69,28 +69,3 @@ class Bulgaria(OrthodoxCalendar):
         if year == 2021:
             days.append((date(2021, 5, 4), self.labour_day_label))
         return days
-
-    def shift_christmas_boxing_days(self, year):
-        """
-        Return Christmas shifts.
-
-        They usually follow the same rule as used in the UK, but the fact that
-        there's a second Christmas holiday requires an override.
-        """
-        days = super().shift_christmas_boxing_days(year=year)
-        # In this case we'll need an extra day for the Second day of XMas
-        if date(year, 12, 25).weekday() == SUN:
-            days.append(
-                (date(year, 12, 28), "Christmas (in lieu)")
-            )
-        return days
-
-    def get_variable_days(self, year):
-        """
-        Return variable holidays, with Christmas shifts computed accordingly.
-        """
-        days = super().get_variable_days(year)
-        # Boxing day & XMas shift
-        shifts = self.shift_christmas_boxing_days(year=year)
-        days.extend(shifts)
-        return days
