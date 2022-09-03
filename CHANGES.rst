@@ -1,3 +1,9 @@
+v7.6.0
+------
+
+Internal refactoring and simplification. Removed redundant "shift" holidays
+from european countries.
+
 v7.5.0
 ------
 
