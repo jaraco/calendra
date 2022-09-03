@@ -6,7 +6,7 @@ Welcome to |project| documentation!
 
    history
 
-See the `workalendar docs <https://peopledoc.github.io/workalendar>`_
+See the `workalendar docs <https://workalendar.github.io/workalendar>`_
 for more details.
 
 .. automodule:: calendra
