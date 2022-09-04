@@ -1,3 +1,8 @@
+v7.6.1
+------
+
+Updated some latent references to peopledoc.
+
 v7.6.0
 ------
 
