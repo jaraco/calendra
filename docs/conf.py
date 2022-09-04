@@ -9,7 +9,7 @@ link_files = {
     '../CHANGES.rst': dict(
         using=dict(
             GH='https://github.com',
-            workalendar='https://github.com/peopledoc/workalendar/',
+            workalendar='https://github.com/workalendar/workalendar/',
         ),
         replace=[
             dict(

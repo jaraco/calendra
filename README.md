@@ -18,9 +18,9 @@ Calendra is a Python module that offers classes able to handle calendars, list l
 
 ## History
 
-Calendra is a fork of [Workalendar](https://github.com/peopledoc/workalendar)
+Calendra is a fork of [Workalendar](https://github.com/workalendar/workalendar)
 designed to be more extensible and introspectable, adding interfaces where
-[Workalendar is philosophically opposed for the sake of simplicity](https://github.com/peopledoc/workalendar/pull/79).
+[Workalendar is philosophically opposed for the sake of simplicity](https://github.com/workalendar/workalendar/pull/79).
 
 What can Calendra do that Workalendar cannot?
 
@@ -31,34 +31,6 @@ What can Calendra do that Workalendar cannot?
 - Allows the number of Holidays in a calendar year to be counted.
 - Consolidates observance logic in the core code rather than requiring
   each calendar implementation to implement its own.
-
-## Installation
-
-**With pip**
-
-```sh
-pip install workalendar
-```
-
-**With conda**
-
-```sh
-conda install -c conda-forge workalendar
-```
-
-### Extra dependencies
-
-**Note: NEW in v16.0.0**
-
-If the calendar(s) you want to work with requires astronomical computations (such as Asian calendars needing equinoxes or solar terms), Workalendar will provide pre-computed values within the year range from 1991 to 2051.
-
-However, if you want to use astronomical libraries to compute the calendar yourself, you'll need to install the `[astronomy]` extra dependency like this:
-
-```sh
-pip install workalendar[astronomy]
-```
-
-If you had previously installed the `skyfield` and `skyfield-data` packages, they'll be used to compute the calendars. If you want to benefit from the "astronomical cache", and eventually benefit from performance gains, you'll have to **uninstall** those packages first to fallback to pre-computed files.
 
 ## Status
 
@@ -99,10 +71,6 @@ For a more complete documentation and advanced usage, go to [the official workal
 ## External dependencies
 
 Calendra has been tested on the Python versions declared in setup.cfg.
-
-* If you're using \*Nix and Python 3.6, 3.7, 3.8, the package `backports.zoneinfo` is required
-* If you're using Windows and Python 3.6, 3.7, 3.8, the package `tzdata` is *also* a requirement (with the `backports.zoneinfo`).
-* If you're using Python 3.9+, the stdlib `zoneinfo` package will be used.
 
 ## Tests
 
