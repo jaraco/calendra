@@ -1,16 +1,17 @@
-[![](https://img.shields.io/pypi/v/calendra.svg)][1]
+[![](https://img.shields.io/pypi/v/calendra.svg)][https://pypi.org/project/calendra]
 
-[![](https://img.shields.io/pypi/pyversions/calendra.svg)][1]
+![](https://img.shields.io/pypi/pyversions/calendra.svg)
 
-  [1]: https://pypi.org/project/calendra
+[![tests](https://github.com/jaraco/calendra/workflows/Automated%20Tests/badge.svg)](https://github.com/jaraco/calendra/actions?query=workflow%3A%22Automated+Tests%22)
 
-[![Automated Tests](https://github.com/jaraco/calendra/workflows/Automated%20Tests/badge.svg)](https://github.com/jaraco/calendra/actions?query=workflow%3A%22Automated+Tests%22)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+
+[![Code style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 [![](https://readthedocs.org/projects/calendra/badge/?version=latest)](https://calendra.readthedocs.io/en/latest/?badge=latest)
 
-[![license](http://img.shields.io/pypi/l/workalendar.svg)](https://github.com/workalendar/workalendar/blob/master/LICENSE)
-[![pypi](http://img.shields.io/pypi/v/workalendar.svg)](https://pypi.python.org/pypi/workalendar)
-[![conda](https://img.shields.io/conda/v/conda-forge/workalendar?color=blue&logo=anaconda)](https://anaconda.org/conda-forge/workalendar)
+[![](https://img.shields.io/badge/skeleton-2023-informational)][https://blog.jaraco.com/skeleton]
+
 
 ## Overview
 
