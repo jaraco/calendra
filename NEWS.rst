@@ -1,3 +1,9 @@
+v7.7.1
+======
+
+No significant changes.
+
+
 v7.7.0
 ======
 
