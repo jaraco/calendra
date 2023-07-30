@@ -1,3 +1,32 @@
+v7.7.0
+======
+
+Features
+--------
+
+- Incorporate changes from workalendar v17.0.0 (2023-01-01)
+
+  New calendars
+
+  - New calendar: Added Tunisia calendar by @macharmi (#702)
+  - New calendar: Added El Salvador calendar by @hersoncruz (#708).
+
+  Other changes
+
+  - Update China's public holidays for 2023 (#728).
+  - Removed compatibility with Python 3.6, also, removed tests & amended documentation (#705).
+  - Upgraded `tox` usage, now compatble with tox 4+ (added `allowlist_externals`).
+  - Added support for Python 3.10 (#706).
+  - Added support for Python 3.11 (#732).
+  - Refactor ``NetherlandsWithSchoolHolidays.get_christmas_holidays`` for simplicity and readability.
+
+- Incorporate changes from workalendar v16.4.0 (2022-09-16)
+
+  - Fixed United Kingdom's 2022 holidays ; Added Bank Holiday for the State Funeral of Queen Elizabeth II (#719).
+
+- Require Python 3.8 or later.
+
+
 v7.6.1
 ======
 
