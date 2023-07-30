@@ -1,16 +1,16 @@
 v7.6.1
-------
+======
 
 Updated some latent references to peopledoc.
 
 v7.6.0
-------
+======
 
 Internal refactoring and simplification. Removed redundant "shift" holidays
 from european countries.
 
 v7.5.0
-------
+======
 
 Incorporate changes from workalendar v16.3.0 (2022-02-22)
 
@@ -37,7 +37,7 @@ Incorporate changes from workalendar v16.1.0 (2021-10-01)
 - New calendar: Added Guernsey calendar by @ludsoft (#681)
 
 v7.4.0
-------
+======
 
 Incorporate changes from workalendar v16.0.0 (2021-09-16)
 
@@ -56,7 +56,7 @@ Internal
 - Changed the maintainer email.
 
 v7.3.0
-------
+======
 
 Incorporate changes from workalendar v15.4.0 (2021-07-12)
 
@@ -99,7 +99,7 @@ Incorporate changes from workalendar v15.0.1 (2021-02-26)
 - Hotfix: September 11th is a working day in Taiwan (#628).
 
 v7.2.0
-------
+======
 
 Incorporate changes from workalendar v15.0.0 (2021-02-19)
 
@@ -123,7 +123,7 @@ Improving test coverage
 - Improve coverage for the `tests/__init__.py` module (#546). *Note:* system-dependant test branch (if Windows) won't be counted for coverage.
 
 v7.1.0
-------
+======
 
 Incorporate changes from workalendar v14.3.0 (2021-01-15)
 
@@ -147,7 +147,7 @@ Internal
 - Fix tests when running them on Windows (#607).
 
 v7.0.0
-------
+======
 
 New feature
 
@@ -351,18 +351,18 @@ Incorporate changes from workalendar v8.0.1 (2020-01-24)
 - Fix Family Day for British Columbia (Canada) which was switched from 2nd to 3rd Monday of February in 2019 - thx @jbroudou for the bug report (#454).
 
 v6.1.2
-------
+======
 
 #14: Replaced implicit dependency on setuptools with explicit
 dependency on importlib.metadata.
 
 v6.1.1
-------
+======
 
 Fix version inference when installed from sdist.
 
 v6.1.0
-------
+======
 
 Incorporate changes from workalendar v8.0.0 (2020-01-10)
 
@@ -413,12 +413,12 @@ Other changes
 - Increase China coverage by adding tests for special extra-holidays & extra-working days cases.
 
 v6.0.0
-------
+======
 
 Require Python 3.6 or later.
 
 v5.0.0
-------
+======
 
 #11: Add support for ``__add__`` and ``__sub__`` for
 ``Holiday`` instances on Python 3.8 and later. Now adding
@@ -444,7 +444,7 @@ Incorporate changes from workalendar v5.2.3 (2019-07-11)
 
 
 v4.0.0
-------
+======
 
 Incorporate changes from workalendar v5.2.2. (2019-07-07)
 
@@ -583,7 +583,7 @@ Incorporate changes from workalendar v4.0.0 (2019-01-24)
     - Added Israel, by @armona, @tsehori (#281).
 
 3.0
----
+===
 
 Incorporate changes from workalendar 3.2.1:
 
@@ -650,7 +650,7 @@ Incorporate changes from workalendar 2.4.0:
 - Refactored Australia family and community day calculation (#244).
 
 2.0
----
+===
 
 Incorporate changes from workalendar 2.1.0:
 
@@ -710,7 +710,7 @@ Incorporate changes from workalendar 0.8.1:
 - Reformation Day is a national holiday in Germany, but only in 2017 (#150).
 
 1.8
----
+===
 
 Now tests are run using tox and releases are made automatically
 using Travis-CI deployment framework.
@@ -736,12 +736,12 @@ Incorporate changes from workalendar 0.6.1:
 - Added a Makefile for various dev-related tasks -- installs, running tests, uploading to PyPI... (#133).
 
 1.7.1
------
+=====
 
 - #7: Avoid crashing on import when installed as zip package.
 
 1.7
----
+===
 
 Incorporate changes from workalendar 0.5.0:
 
@@ -753,7 +753,7 @@ Incorporate changes from workalendar 0.4.5:
 - Added Switzerland, thx to @sykaeh (#127).
 
 1.6
----
+===
 
 - #6: Remove observance shift for Sweden.
 - Use `jaraco skeleton <https://github.com/jaraco/skeleton>`_ to
@@ -761,7 +761,7 @@ Incorporate changes from workalendar 0.4.5:
   from continuous integration and bundled documentation.
 
 1.5
----
+===
 
 Incorporate changes from workalendar 0.4.3:
 
@@ -790,7 +790,7 @@ Incorporate changes from workalendar 0.4.0:
 - Fixed the Boxing day & boxing day shift for Australia
 
 1.4
----
+===
 
 ``Calendar.get_observed_date`` now allows ``observance_shift`` to be
 a callable accepting the holiday and calendar and returning the observed
@@ -800,7 +800,7 @@ locating the nearest weekday.
 - #5: USA Independence Day now honors the nearest weekday model.
 
 1.3
----
+===
 
 Incorporate these fixes from Workalendar 0.3:
 
@@ -810,12 +810,12 @@ Incorporate these fixes from Workalendar 0.3:
 - BUGFIX: Belgian National Day title (#99) (thx @laulaz)
 
 1.2.1
------
+=====
 
 Correct usage in example.
 
 1.2
----
+===
 
 Fixed issue #4 where Finland holidays were shifted but shouldn't have been.
 Calendars and Holidays may now specify observance_shift=None to signal no
@@ -825,18 +825,18 @@ Package can now be tested with pytest-runner by invoking ``python setup.py
 pytest``.
 
 1.1.3
------
+=====
 
 Fix name of Finnish Independence Day.
 
 1.1.2
------
+=====
 
 Fixed issues with packaging (disabled installation an zip egg and now use
 setuptools always).
 
 1.1
----
+===
 
 UnitedKingdom Calendar now uses indicated/observed Holidays.
 
@@ -846,7 +846,7 @@ Includes these changes slated for workalendar 0.3:
   next Monday) (#95)
 
 1.0
----
+===
 
 Initial release of Calendra based on Workalendar 0.2.
 
