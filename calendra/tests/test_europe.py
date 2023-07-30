@@ -1980,6 +1980,10 @@ class UnitedKingdomTest(GenericCalendarTest):
         self.assertIn(date(2022, 8, 29), holidays)  # Summer bank holiday
         self.assertIn(date(2022, 12, 26), observed)  # Boxing Day
         self.assertIn(date(2022, 12, 27), observed)  # Christmas Day
+        # State Funeral of Queen Elizabeth II
+        self.assertIn(date(2022, 9, 19), holidays)
+        self.assertIn(date(2022, 12, 26), observed)  # Boxing Day
+        self.assertIn(date(2022, 12, 27), observed)  # Christmas Day
 
 
 class UnitedKingdomNorthernIrelandTest(UnitedKingdomTest):

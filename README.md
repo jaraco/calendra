@@ -134,6 +134,7 @@ from the command line.
 - Canada (including provincial and territory holidays)
 - Chile
 - Colombia
+- El Salvador
 - Mexico
 - Panama
 - Paraguay
@@ -180,6 +181,7 @@ from the command line.
 - Nigeria
 - São Tomé
 - South Africa
+- Tunisia
 
 And more to come (I hope!)
 
