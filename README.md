@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/pypi/pyversions/calendra.svg)
 
-[![tests](https://github.com/jaraco/calendra/workflows/tests/badge.svg)](https://github.com/jaraco/calendra/actions?query=workflow%3A%22tests%22)
+[![tests](https://github.com/jaraco/calendra/actions/workflows/main.yml/badge.svg)](https://github.com/jaraco/calendra/actions?query=workflow%3A%22tests%22)
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
