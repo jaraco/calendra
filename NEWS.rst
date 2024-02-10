@@ -1,3 +1,12 @@
+v7.8.0
+======
+
+Features
+--------
+
+- Added China holidays for 2024.
+
+
 v7.7.1
 ======
 
