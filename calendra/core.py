@@ -907,7 +907,7 @@ class CoreCalendar:
 
         # check for internal types
         check_types = map(type, period)
-        check_types = map(lambda x: x != int, check_types)
+        check_types = map(lambda x: x is not int, check_types)
         if any(check_types):
             raise ICalExportRangeError(
                 "Incorrect Range boundaries. Must be int.")
