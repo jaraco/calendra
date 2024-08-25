@@ -86,8 +86,9 @@ type = [
 ]
 
 
-
 [tool.setuptools_scm]
 
+
 [tool.pytest-enabler.mypy]
+# Disabled due to jaraco/skeleton#143
 # disabled for 88 failures
