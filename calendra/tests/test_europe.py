@@ -1020,6 +1020,12 @@ class ItalyTest(GenericCalendarTest):
         self.assertEqual(
             holidays[date(2020, 5, 1)], "International Workers' Day")
 
+    def test_workday_after_weekend_holiday(self):
+        # 2024-06-02 was on sunday
+        self.cal.is_working_day(date(2024, 6, 3))
+        # 2024-01-06 was on saturday
+        self.cal.is_working_day(date(2024, 1, 8))
+
 
 class LatviaTest(GenericCalendarTest):
 

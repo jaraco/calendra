@@ -22,3 +22,4 @@ class Italy(WesternCalendar):
     include_all_saints = True
     include_boxing_day = True
     boxing_day_label = "St Stephen's Day"
+    observance_shift = None
