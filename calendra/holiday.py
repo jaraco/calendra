@@ -51,10 +51,9 @@ class Holiday(date):
         tp = self, self.name
         return iter(tp)
 
-    def replace(self, *args, **kwargs):
-        replaced = super().replace(*args, **kwargs)
-        vars(replaced).update(vars(self))
-        return replaced
+    def replace(self, **kwargs):
+        orig = date(self.year, self.month, self.day)
+        return Holiday(orig.replace(**kwargs), **vars(self))
 
     def __add__(self, other):
         orig = date(self.year, self.month, self.day)
