@@ -1,3 +1,13 @@
+v7.9.1
+======
+
+Bugfixes
+--------
+
+- Remove observance shift for Italy (#29)
+- Re-implement the logic of replace. (#31)
+
+
 v7.9.0
 ======
 
