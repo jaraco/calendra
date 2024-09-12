@@ -51,17 +51,18 @@ class Holiday(date):
         tp = self, self.name
         return iter(tp)
 
+    @property
+    def _orig(self):
+        return date(self.year, self.month, self.day)
+
     def replace(self, **kwargs):
-        orig = date(self.year, self.month, self.day)
-        return Holiday(orig.replace(**kwargs), **vars(self))
+        return Holiday(self._orig.replace(**kwargs), **vars(self))
 
     def __add__(self, other):
-        orig = date(self.year, self.month, self.day)
-        return Holiday(orig + other, **vars(self))
+        return Holiday(self._orig + other, **vars(self))
 
     def __sub__(self, other):
-        orig = date(self.year, self.month, self.day)
-        return Holiday(orig - other, **vars(self))
+        return Holiday(self._orig - other, **vars(self))
 
     def nearest_weekday(self, calendar):
         """
