@@ -12,7 +12,6 @@ class Ukraine(OrthodoxCalendar):
 
     FIXED_HOLIDAYS = OrthodoxCalendar.FIXED_HOLIDAYS + (
         (3, 8, "International Women’s Day"),
-        (5, 9, "Victory Day"),
     )
     # Civil holidays
     include_labour_day = True
@@ -29,12 +28,14 @@ class Ukraine(OrthodoxCalendar):
 
         # Orthodox Christmas holiday is moved when it falls over the week
         orthodox_christmas = date(year, 1, 7)
-        if orthodox_christmas.weekday() in self.get_weekend_days():
-            days.append((
-                self.find_following_working_day(orthodox_christmas),
-                "Orthodox Christmas (postponed)"))
-        else:
-            days.append((orthodox_christmas, "Orthodox Christmas"))
+        # Last celebrated in 2023
+        if year <= 2023:
+            if orthodox_christmas.weekday() in self.get_weekend_days():
+                days.append((
+                    self.find_following_working_day(orthodox_christmas),
+                    "Orthodox Christmas (postponed)"))
+            else:
+                days.append((orthodox_christmas, "Orthodox Christmas"))
 
         # Constitution Day was celebrated for the first time in 1996
         if year >= 1996:
@@ -61,16 +62,32 @@ class Ukraine(OrthodoxCalendar):
                 days.append((independence_day, "Independence Day"))
 
         # Defender of Ukraine from 2015
-        # https://en.wikipedia.org/wiki/Defender_of_Ukraine_Day
+        # https://en.wikipedia.org/wiki/Defenders_Day_(Ukraine)
         if year >= 2015:
-            days.append((date(year, 10, 14), "Day of Defender of Ukraine"))
+            days.append((year, 10, 14, "Defenders Day"))
+        # Was moved after 2023
+        if year >= 2023:
+            days.append((year, 10, 1, "Defenders Day"))
 
-        # Catholic Christmas has become an holiday only starting from 2017
+        # Catholic Christmas has become a holiday only starting from 2017
         if year >= 2017:
             days.append((date(year, 12, 25), "Christmas Day"))
 
         # Workers Solidarity Day was celebrated also on the 2nd till 2017
         if year <= 2017:
             days.append((date(year, 5, 2), "Workers Solidarity Day"))
+
+        # WW2 was celebrated on 9th of May but then moved to 8th
+        if year <= 2023:
+            days.append((date(year, 5, 9), "Victory Day"))
+        if year >= 2024:
+            days.append((date(year, 5, 8), "Day of Remembrance and Victory"))
+
+        # Statehood Day celebrated from 2022
+        # https://en.wikipedia.org/wiki/Statehood_Day_(Ukraine)
+        if year in (2022, 2023):
+            days.append((date(year, 7, 28), "Statehood Day"))
+        if year >= 2024:
+            days.append((date(year, 7, 15), "Statehood Day"))
 
         return days
