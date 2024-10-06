@@ -64,9 +64,9 @@ class Ukraine(OrthodoxCalendar):
         # Defender of Ukraine from 2015
         # https://en.wikipedia.org/wiki/Defenders_Day_(Ukraine)
         if year >= 2015 and year <= 2022:
-            days.append((year, 10, 14, "Defenders Day"))
+            days.append((date(year, 10, 14), "Defenders Day"))
         elif year >= 2023:
-            days.append((year, 10, 1, "Defenders Day"))
+            days.append((date(year, 10, 1), "Defenders Day"))
 
         # Catholic Christmas has become a holiday only starting from 2017
         if year >= 2017:
