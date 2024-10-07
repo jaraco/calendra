@@ -1818,7 +1818,7 @@ class UkraineTest(GenericCalendarTest):
     def test_year_2015(self):
         holidays = self.cal.holidays_set(2015)
         self.assertIn(date(2015, 6, 29), holidays)  # Constitution Day (moved)
-        self.assertIn(date(2015, 10, 14), holidays)  # Defender of Ukraine
+        self.assertIn(date(2015, 10, 14), holidays)  # Defenders Day
 
     def test_year_2016(self):
         holidays = self.cal.holidays_set(2016)
@@ -1827,12 +1827,11 @@ class UkraineTest(GenericCalendarTest):
         self.assertIn(date(2016, 3, 8), holidays)  # International Women's Day
         self.assertIn(date(2016, 5, 1), holidays)  # Workers Solidarity Day
         self.assertIn(date(2016, 5, 2), holidays)  # Workers Solidarity Day
-        self.assertIn(date(2016, 5, 2), holidays)
         self.assertIn(date(2016, 5, 9), holidays)  # Victory Day
         self.assertIn(date(2016, 6, 20), holidays)
         self.assertIn(date(2016, 6, 28), holidays)  # Constitution Day
-        self.assertIn(date(2016, 8, 24), holidays)  # Day of Unity
-        self.assertIn(date(2016, 10, 14), holidays)  # Defender of Ukraine
+        self.assertIn(date(2016, 8, 24), holidays)  # Independence Day
+        self.assertIn(date(2016, 10, 14), holidays)  # Defenders Day
         self.assertNotIn(date(2016, 12, 25), holidays)  # Christmas Day
 
     def test_year_2017(self):
@@ -1845,6 +1844,33 @@ class UkraineTest(GenericCalendarTest):
     def test_year_2018(self):
         holidays = self.cal.holidays_set(2018)
         self.assertNotIn(date(2018, 5, 2), holidays)  # Workers Solidarity Day
+
+    def test_year_2023(self):
+        holidays = self.cal.holidays_set(2023)
+        self.assertIn(date(2023, 1, 1), holidays)  # New Year's Day
+        self.assertIn(date(2023, 1, 7), holidays)  # Christmas (Orthodox)
+        self.assertIn(date(2023, 3, 8), holidays)  # International Women's Day
+        self.assertIn(date(2023, 5, 1), holidays)  # Labour Day
+        self.assertIn(date(2023, 5, 9), holidays)  # Victory Day
+        self.assertIn(date(2023, 6, 28), holidays)  # Constitution Day
+        self.assertIn(date(2023, 7, 28), holidays)  # Statehood day
+        self.assertIn(date(2023, 8, 24), holidays)  # Independence Day
+        self.assertIn(date(2023, 10, 1), holidays)  # Defenders Day
+        self.assertIn(date(2023, 12, 25), holidays)  # Christmas Day
+
+    def test_year_2024(self):
+        holidays = self.cal.holidays_set(2024)
+        self.assertIn(date(2024, 1, 1), holidays)  # New Year's Day
+        self.assertNotIn(date(2024, 1, 7), holidays)  # Christmas (Orthodox)
+        self.assertIn(date(2024, 3, 8), holidays)  # International Women's Day
+        self.assertIn(date(2024, 5, 1), holidays)  # Labour Day
+        self.assertNotIn(date(2024, 5, 9), holidays)  # Victory Day
+        self.assertIn(date(2024, 5, 8), holidays)  # Day of Remembrance and Victory
+        self.assertIn(date(2024, 6, 28), holidays)  # Constitution Day
+        self.assertIn(date(2024, 7, 15), holidays)  # Statehood day
+        self.assertIn(date(2024, 8, 26), holidays)  # Independence Day
+        self.assertIn(date(2024, 10, 1), holidays)  # Defenders Day
+        self.assertIn(date(2024, 12, 25), holidays)  # Christmas Day
 
     def test_may_1st_label(self):
         holidays = self.cal.holidays(2020)
