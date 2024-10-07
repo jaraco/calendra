@@ -18,10 +18,15 @@ class Ukraine(OrthodoxCalendar):
     labour_day_label = "Workers Solidarity Day"
     # Christian holidays
     include_christmas = False
+    include_orthodox_christmas = False
     include_good_friday = True
     include_easter_sunday = True
     include_easter_monday = True
     include_whit_monday = True
+
+    def get_fixed_holidays(self, year):
+        self.include_orthodox_christmas = (year <= 2023)
+        return super().get_fixed_holidays(year)
 
     def get_variable_days(self, year):
         days = super().get_variable_days(year)
