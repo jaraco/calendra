@@ -476,6 +476,13 @@ class DenmarkTest(GenericCalendarTest):
         self.assertIn(date(2015, 12, 25), holidays)  # juledag
         self.assertIn(date(2015, 12, 26), holidays)  # 2. juledag
 
+    def test_great_prayer_day(self):
+        # Since the year 2024, Great prayer day is a non-working day in Denmark
+        holidays_2023 = self.cal.holidays_set(2023)
+        self.assertIn(date(2023, 5, 5), holidays_2023)
+        # 2024
+        holidays_2024 = self.cal.holidays_set(2024)
+        self.assertNotIn(date(2024, 4, 26), holidays_2024)
 
 class SlovakiaTest(GenericCalendarTest):
     cal_class = Slovakia
