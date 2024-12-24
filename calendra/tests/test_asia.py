@@ -165,6 +165,34 @@ class ChinaTest(GenericCalendarTest):
         self.assertNotIn(date(2024, 9, 29), holidays)   # National Day Shift
         self.assertNotIn(date(2024, 10, 12), holidays)  # National Day Shift
 
+    def test_year_2025(self):
+        holidays = self.cal.holidays_set(2025)
+        self.assertIn(date(2025, 1, 1), holidays)       # New Year
+        self.assertNotIn(date(2025, 1, 26), holidays)   # Spring Festival Shift
+        self.assertIn(date(2025, 1, 28), holidays)      # Spring Festival
+        self.assertIn(date(2025, 1, 29), holidays)      # Spring Festival
+        self.assertIn(date(2025, 1, 30), holidays)      # Spring Festival
+        self.assertIn(date(2025, 1, 31), holidays)      # Spring Festival
+        self.assertIn(date(2025, 2, 1), holidays)       # Spring Festival
+        self.assertIn(date(2025, 2, 2), holidays)       # Spring Festival
+        self.assertIn(date(2025, 2, 3), holidays)       # Spring Festival
+        self.assertIn(date(2025, 2, 4), holidays)       # Spring Festival
+        self.assertNotIn(date(2025, 2, 8), holidays)    # Spring Festival Shift
+        self.assertIn(date(2025, 4, 4), holidays)       # Ching Ming Festival
+        self.assertIn(date(2025, 4, 5), holidays)       # Ching Ming Festival
+        self.assertIn(date(2025, 4, 6), holidays)       # Ching Ming Festival
+        self.assertNotIn(date(2025, 4, 27), holidays)   # Labour Day Holiday Shift
+        for i in range(1, 6):
+            self.assertIn(date(2025, 5, i), holidays)       # Labour Day Holiday
+        self.assertIn(date(2025, 5, 31), holidays)      # Dragon Boat Festival
+        self.assertIn(date(2025, 6, 1), holidays)       # Dragon Boat Festival
+        self.assertIn(date(2025, 6, 2), holidays)       # Dragon Boat Festival
+        self.assertNotIn(date(2025, 9, 28), holidays)   # National Day Shift
+        for i in range(1, 9):
+            self.assertIn(date(2025, 10, i), holidays)      # Mid-Autumn Festival & National Day
+        self.assertNotIn(date(2025, 10, 11), holidays)  # National Day Shift
+
+
     def test_missing_holiday_year(self):
         save_2018 = china_holidays[2018]
         del china_holidays[2018]
@@ -177,7 +205,7 @@ class ChinaTest(GenericCalendarTest):
         with patch('warnings.warn') as patched:
             self.cal.get_calendar_holidays(year)
         patched.assert_called_with(
-            'Support years 2018-2024 currently, need update every year.'
+            'Support years 2018-2025 currently, need update every year.'
         )
 
     def test_is_working_day(self):
