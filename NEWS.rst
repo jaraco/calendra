@@ -1,8 +1,3 @@
-Features
---------
-- Removed Great Prayer Day from Denmark holidays from year 2024.
-
-
 v7.9.1
 ======
 
