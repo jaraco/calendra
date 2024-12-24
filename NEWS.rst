@@ -1,3 +1,14 @@
+v7.10.0
+=======
+
+Features
+--------
+
+- Updated Ukraine holidays. (#32)
+- Updated China for 2025. (#33)
+- Removed Great Prayer Day from Denmark holidays from year 2024. (#34)
+
+
 v7.9.1
 ======
 
