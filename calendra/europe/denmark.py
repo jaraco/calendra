@@ -26,6 +26,6 @@ class Denmark(WesternCalendar):
 
     def get_variable_days(self, year):
         days = super().get_variable_days(year)
-        # Great prayer day is a non-working day since 2024
+        # Great prayer day is a working day since 2024
         if year < 2024: days.append((self.get_store_bededag(year), "Store Bededag"))
         return days
