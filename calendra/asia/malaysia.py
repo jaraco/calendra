@@ -52,6 +52,9 @@ class Malaysia(IslamicMixin, ChineseNewYearCalendar):
         2022: date(2022, 10, 24),
         2023: date(2023, 11, 13),  # in lieu of 12th Nov
         2024: date(2024, 10, 31),
+        2025: date(2025, 10, 20),
+        2026: date(2026, 11, 9),
+        2027: date(2027, 10, 28),
     }
 
     # Ref: https://publicholidays.com.my/thaipusam/
@@ -71,6 +74,9 @@ class Malaysia(IslamicMixin, ChineseNewYearCalendar):
         2022: date(2022, 1, 18),
         2023: date(2023, 2, 4),
         2024: date(2024, 1, 25),
+        2025: date(2025, 2, 11),
+        2026: date(2026, 2, 2),
+        2027: date(2027, 1, 24),
     }
     chinese_new_year_label = "First Day of Lunar New Year"
     include_chinese_second_day = True
