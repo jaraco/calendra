@@ -1,3 +1,12 @@
+v7.11.0
+=======
+
+Features
+--------
+
+- Updated Malaysia calendar through 2027. (#35)
+
+
 v7.10.0
 =======
 
