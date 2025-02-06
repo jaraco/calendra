@@ -33,7 +33,7 @@ What can Calendra do that Workalendar cannot?
 
 ## Status
 
-The project is stable and in production use. Calendra follows the principles of [semver](https://semver.org) for released verisons.
+The project is stable and in production use. Calendra follows the principles of [semver](https://semver.org) for released versions.
 
 If you spot any bug or wish to add a calendar, please refer to the [Contributing doc](https://peopledoc.github.io/workalendar/contributing.html).
 
