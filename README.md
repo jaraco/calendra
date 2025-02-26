@@ -8,7 +8,7 @@
 
 [![](https://readthedocs.org/projects/calendra/badge/?version=latest)](https://calendra.readthedocs.io/en/latest/?badge=latest)
 
-[![](https://img.shields.io/badge/skeleton-2024-informational)](https://blog.jaraco.com/skeleton)
+[![](https://img.shields.io/badge/skeleton-2025-informational)](https://blog.jaraco.com/skeleton)
 
 
 ## Overview
