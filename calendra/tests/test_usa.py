@@ -700,15 +700,13 @@ class FloridaLegalTest(IncludeMardiGras, ElectionDayEveryYear,
     * Columbus Day renamed as "Columbus and Farmers' Day"
     * Election Day
     """
-    cal_class = FloridaLegal
-
-    def test_init_warning(self):
+    def cal_class(self):
         msg = (
             "Florida's laws separate the definitions between "
             "paid versus legal holidays."
         )
         with pytest.warns(UserWarning, match=msg):
-            self.cal_class()
+            return FloridaLegal()
 
     def test_specific_lincoln_birthday(self):
         holidays = self.cal.holidays_set(2014)
