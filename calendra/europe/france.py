@@ -20,6 +20,7 @@ class France(WesternCalendar):
         (7, 14, "Bastille Day"),
         (11, 11, "Armistice Day"),
     )
+    observance_shift = None
 
 
 class FranceAlsaceMoselle(France):
