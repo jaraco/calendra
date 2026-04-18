@@ -8,9 +8,9 @@ from datetime import date, timedelta, datetime
 from pathlib import Path
 import sys
 
-import convertdate
+from . import convertdate
 from dateutil import easter
-from lunardate import LunarDate
+from lunarcalendar import Lunar
 from dateutil import relativedelta as rd
 
 from .exceptions import (
@@ -274,7 +274,7 @@ class LunarMixin:
     """
     @staticmethod
     def lunar(year, month, day):
-        return LunarDate(year, month, day).toSolarDate()
+        return Lunar(year, month, day).to_date()
 
 
 class ChineseNewYearMixin(LunarMixin):
