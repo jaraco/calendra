@@ -659,6 +659,10 @@ class FranceTest(GenericCalendarTest):
         self.assertEqual(self.cal.add_working_days(day, 2), date(2013, 11, 4))
         self.assertEqual(self.cal.add_working_days(day, 3), date(2013, 11, 5))
 
+    def test_workday_after_weekend_holiday(self):
+        # 2025-11-01 was on saturday
+        self.cal.is_working_day(date(2025, 11, 3))
+
 
 class FranceAlsaceMoselleTest(FranceTest):
     cal_class = FranceAlsaceMoselle
