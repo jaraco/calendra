@@ -65,7 +65,16 @@ holidays = {
         'Labour Day Holiday': [(5, 1), (5, 2), (5, 3), (5, 4), (5, 5)],
         'Dragon Boat Festival': [(5, 31), (6, 1), (6, 2)],
         'National Day': [(10, 8)],
-    }
+    },
+    2026:
+        {
+            'New year': [(1, 2), (1, 3)],
+            'Spring Festival': [(2, 15), (2, 23)],
+            'Ching Ming Festival': [(4, 4), (4, 5), (4, 6)],
+            'Labour Day Holiday': [(5, 1), (5, 2), (5, 3), (5, 4), (5, 5)],
+            'Dragon Boat Festival': [(6, 19), (6, 20), (6, 21)],
+            'Mid-Autumn Festival': [(9, 25), (9, 26), (9, 27)],
+        },
 }
 
 workdays = {
@@ -124,14 +133,21 @@ workdays = {
             'Spring Festival Shift': [(1, 26), (2, 8)],
             'Labour Day Holiday Shift': [(4, 27)],
             'National Day Shift': [(9, 28), (10, 11)],
-        }
+        },
+    2026:
+        {
+            'New year Shift': [(1, 4)],
+            'Spring Festival Shift': [(2, 14), (2, 28)],
+            'Labour Day Holiday Shift': [(5, 9)],
+            'National Day Shift': [(9, 20), (10, 10)],
+        },
 }
 
 
 @iso_register('CN')
 class China(ChineseNewYearCalendar):
     "China"
-    # WARNING: Support 2018-2025 currently, need update every year.
+    # WARNING: Support 2018-2026 currently, need update every year.
     shift_new_years_day = True
     include_chinese_new_year_eve = True
 
