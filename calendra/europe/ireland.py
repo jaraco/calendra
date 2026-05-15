@@ -24,9 +24,23 @@ class Ireland(WesternCalendar):
             "August Holiday"
         )
 
+    def get_st_brigids_day(self, year):
+        feb_1 = date(year, 2, 1)
+
+        # If Feb 1 is Friday, use Feb 1 itself
+        if feb_1.weekday() == 4:
+            return (feb_1, "St. Brigid's Day")
+
+        # Otherwise first Monday in February
+        return (Ireland.get_nth_weekday_in_month(year, 2, MON), "St. Brigid's Day")
+
     def get_variable_days(self, year):
         self.include_whit_monday = (year <= 1973)
         days = super().get_variable_days(year)
+
+        # St. Brigid's day, introduced in 2023
+        if year >= 2023:
+            days.append(self.get_st_brigids_day(year))
 
         # St Patrick's day
         st_patrick = date(year, 3, 17)

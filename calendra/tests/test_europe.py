@@ -1003,6 +1003,27 @@ class IrelandTest(GenericCalendarTest):
         self.assertIn(date(1977, 10, 31), holidays_1977)     # October Hol
         self.assertIn(date(1978, 10, 30), holidays_1978)
 
+    def test_st_brigids_day(self):
+        # No St Brigid's Day before 2023
+        for year in range(2010, 2023):
+            holidays = self.cal.holidays_set(year)
+            self.assertTrue(all(d.month != 2 for d in holidays))
+        # Falls on first Monday in February
+        monday_years_days = (
+            (2023, 6), (2024, 5), (2025, 3), (2026, 2),
+            (2027, 1), (2028, 7), (2029, 5), (2031, 3),
+            (2032, 2), (2033, 7), (2034, 6), (2035, 5)
+        )
+        for year, day in monday_years_days:
+            holidays = self.cal.holidays_set(year)
+            self.assertIn(date(year, 2, day), holidays)
+        # Except if 1st of Feb is Friday, then it falls on that
+        holidays_2030 = self.cal.holidays_set(2030)
+        self.assertIn(date(2030, 2, 1), holidays_2030)
+        holidays_2036 = self.cal.holidays_set(2036)
+        self.assertIn(date(2036, 2, 1), holidays_2036)
+
+
 
 class ItalyTest(GenericCalendarTest):
     cal_class = Italy
