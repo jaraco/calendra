@@ -1,0 +1,2 @@
+Correct the ``holidays()`` output shown in the README usage sample. The
+calendar returns ``Holiday`` objects rather than ``(date, label)`` tuples.

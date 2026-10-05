@@ -44,17 +44,7 @@ If you spot any bug or wish to add a calendar, please refer to the [Contributing
 >>> from calendra.europe import France
 >>> cal = France()
 >>> cal.holidays(2012)
-[(datetime.date(2012, 1, 1), 'New year'),
- (datetime.date(2012, 4, 9), 'Easter Monday'),
- (datetime.date(2012, 5, 1), 'Labour Day'),
- (datetime.date(2012, 5, 8), 'Victory in Europe Day'),
- (datetime.date(2012, 5, 17), 'Ascension Day'),
- (datetime.date(2012, 5, 28), 'Whit Monday'),
- (datetime.date(2012, 7, 14), 'Bastille Day'),
- (datetime.date(2012, 8, 15), 'Assumption of Mary to Heaven'),
- (datetime.date(2012, 11, 1), "All Saints' Day"),
- (datetime.date(2012, 11, 11), 'Armistice Day'),
- (datetime.date(2012, 12, 25), 'Christmas')]
+[Holiday(2012, 1, 1), Holiday(2012, 4, 9), Holiday(2012, 5, 1), Holiday(2012, 5, 8), Holiday(2012, 5, 17), Holiday(2012, 5, 28), Holiday(2012, 7, 14), Holiday(2012, 8, 15), Holiday(2012, 11, 1), Holiday(2012, 11, 11), Holiday(2012, 12, 25)]
 >>> cal.is_working_day(date(2012, 12, 25))  # it's Christmas
 False
 >>> cal.is_working_day(date(2012, 12, 30))  # it's Sunday
