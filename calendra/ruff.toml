@@ -1,2 +1,5 @@
+# Inherit the project lint settings; only formatting is disabled here.
+extend = "../ruff.toml"
+
 [format]
 exclude = ["*"]
