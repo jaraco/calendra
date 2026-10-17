@@ -1,5 +1,38 @@
 # Inherit the project lint settings; only formatting is disabled here.
 extend = "../ruff.toml"
 
+[lint]
+# Most of this package is synced from workalendar, so leave the rules added
+# by Ruff 0.16's expanded defaults (jaraco/skeleton#210) unenforced here
+# rather than mass-rewriting that code. The alternative is to apply
+# `ruff check --fix` (plus hand fixes for the rest) across the package.
+ignore = [
+	"B006", # mutable-argument-default
+	"B009", # get-attr-with-constant
+	"B018", # useless-expression
+	"C401", # unnecessary-generator-set
+	"C408", # unnecessary-collection-call
+	"C417", # unnecessary-map
+	"C901", # complex-structure
+	"D419", # empty-docstring
+	"DTZ003", # call-datetime-utcnow
+	"I001", # unsorted-imports
+	"PERF102", # incorrect-dict-iterator
+	"PERF401", # manual-list-comprehension
+	"PLR0402", # manual-from-import
+	"RET501", # unnecessary-return-none
+	"RUF012", # mutable-class-default
+	"RUF022", # unsorted-dunder-all
+	"RUF059", # unused-unpacked-variable
+	"RUF068", # duplicate-entry-in-dunder-all
+	"RUF100", # unused-noqa
+	"SIM102", # collapsible-if
+	"SIM103", # needless-bool
+	"SIM114", # if-with-same-arms
+	"UP006", # non-pep585-annotation
+	"UP035", # deprecated-import
+	"UP036", # outdated-version-block
+]
+
 [format]
 exclude = ["*"]
