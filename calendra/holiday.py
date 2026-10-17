@@ -1,9 +1,9 @@
-import itertools
 import functools
+import itertools
 from datetime import date, timedelta
 
-from more_itertools import recipes
 from dateutil import relativedelta as rd
+from more_itertools import recipes
 
 
 class Holiday(date):
@@ -101,7 +101,7 @@ class Holiday(date):
             item = Holiday(*item, **kwargs)
         return item
 
-    @functools.lru_cache()
+    @functools.lru_cache  # noqa: B019 holidays are small value objects
     def get_observed_date(self, calendar):
         """
         The date the holiday is observed for the calendar. If the holiday

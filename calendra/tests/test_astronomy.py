@@ -1,15 +1,15 @@
-import pytest
 from datetime import date
 from math import pi
 from unittest.mock import patch
 
+import pytest
 from skyfield.api import Loader
 from skyfield_data import get_skyfield_data_path
 
 from ..skyfield_astronomy import (
     calculate_equinoxes,
-    solar_term,
     newton_angle_function,
+    solar_term,
 )
 
 
