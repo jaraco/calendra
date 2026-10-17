@@ -48,7 +48,6 @@ test = [
 	# local
 	"pygments",
 	"pytest-cov",
-	"pytest-pep8",
 	"pandas",
 	"jaraco.test >= 3.2.0",
 	"freezegun",
